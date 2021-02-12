@@ -5,3 +5,7 @@ require 'bcrypt'
 
 
 enable :sessions 
+
+get('/')
+
+end 
