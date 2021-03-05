@@ -55,16 +55,16 @@ get('/user') do
 end
 
 
-post('/user/movies/new') do 
+get('/user/movies/new') do 
 
 end 
 
-post('/user/movies/delete') do 
+post('/user/movies/:id/delete') do 
 
 end 
 
 
-post('/user/movies/update') do 
+post('/user/movies/:id/update') do 
 
 end 
 
