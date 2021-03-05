@@ -1,0 +1,14 @@
+h2 Alla dina sparade filmer #{session[:user_name]}!
+ol
+    - movies.each do |movie|
+     li
+        p = movie["title"]
+        a href="/user/movies/update/#{movie["id"]}" Uppdatera
+        form action="/user/movies/delete/#{movie["id"]}" method="post"
+            input type="submit" value="Ta bort film!"
+
+h3 Lägg till egen film!
+
+form action="/user/movies/new" method="post"
+    input type="text" name="new_movie" placeholder="Film"
+    input type="submit" value="Lägg till!"
