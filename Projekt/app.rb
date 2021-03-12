@@ -56,17 +56,28 @@ end
 
 
 get('/user/movies/new') do 
-
+  title = params[:new_movie]
+  user_id = session[:id].to_i
+  db = SQLite3::Database.new('db/database1.db')
+  db.execute("INSERT INTO movies (title,user_id) VALUES (?,?)",title,user_id)
+  redirect('/user')
 end 
 
 post('/user/movies/:id/delete') do 
-
+  id = params[:id].to_i 
+  db = SQLite3::Database.new('db/database1.db')
+  db.execute("DELETE FROM movies WHERE id = ?",id)
+  redirect('/user')
 end 
 
 
 post('/user/movies/:id/update') do 
-
-end 
+  id = params[:id].to_i
+  title = params[:title]
+  db = SQLite3::Database.new('db/database1.db')
+  db.execute("UPDATE movies SET title=? WHERE id = ?",title,id)
+  redirect('/user')
+end
 
 
 get('/movies') do
